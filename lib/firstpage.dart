@@ -28,11 +28,12 @@ class _FirstPageState extends State<FirstPage> {
         backgroundColor: Colors.white,
         actions: [
           IconButton(
-              onPressed: null,
-              icon: Icon(
-                Icons.more_horiz,
-                color: Colors.black,
-              ))
+            onPressed: null,
+            icon: Icon(
+              Icons.more_horiz,
+              color: Colors.black,
+            ),
+          )
         ],
       ),
       body: Column(
