@@ -12,20 +12,20 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  // void initState() {
-  //   super.initState();
-  //
-  //   Timer(
-  //     Duration(seconds: 3),
-  //     () {
-  //       Navigator.of(context).pushReplacement(
-  //         MaterialPageRoute(
-  //           builder: (builder) => FirstPage(),
-  //         ),
-  //       );
-  //     },
-  //   );
-  // }
+  void initState() {
+    super.initState();
+
+    Timer(
+      Duration(seconds: 3),
+      () {
+        Navigator.of(context).pushReplacement(
+          MaterialPageRoute(
+            builder: (builder) => FirstPage(),
+          ),
+        );
+      },
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
