@@ -1,5 +1,8 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:moneyui/secondpage.dart';
 
 class FirstPage extends StatefulWidget {
   const FirstPage({super.key});
@@ -16,6 +19,7 @@ class _FirstPageState extends State<FirstPage> {
     return Scaffold(
       // backgroundColor: Colors.transparent,
       appBar: AppBar(
+        elevation: 0,
         title: Text(
           "Money Flow",
           style: GoogleFonts.openSans(
@@ -25,7 +29,7 @@ class _FirstPageState extends State<FirstPage> {
           ),
           textAlign: TextAlign.start,
         ),
-        backgroundColor: Colors.white,
+        backgroundColor: Colors.transparent,
         actions: [
           IconButton(
             onPressed: null,
@@ -44,8 +48,9 @@ class _FirstPageState extends State<FirstPage> {
                 padding: const EdgeInsets.all(20),
                 child: Container(
                   decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10),
-                      color: Colors.black),
+                    borderRadius: BorderRadius.circular(10),
+                    color: Colors.black,
+                  ),
                   width: double.infinity,
                   height: 150,
                 ),
@@ -187,7 +192,7 @@ class _FirstPageState extends State<FirstPage> {
                           fontSize: 19),
                     ),
                     Text(
-                      "availiable",
+                      "available",
                       style: GoogleFonts.openSans(
                           fontWeight: FontWeight.bold, color: Colors.black),
                     ),
@@ -212,6 +217,218 @@ class _FirstPageState extends State<FirstPage> {
               ],
             ),
           ),
+          Padding(
+            padding: const EdgeInsets.only(left: 8),
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Expanded(
+                  child: Container(
+                    margin: EdgeInsets.all(10),
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(20),
+                        border: Border.all(width: 2, color: Colors.black26)),
+                    height: 120,
+                    width: double.infinity,
+                    child: Stack(
+                      children: [
+                        Column(
+                          children: [
+                            Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Container(
+                                alignment: Alignment.topLeft,
+                                width: 40,
+                                height: 40,
+                                decoration: BoxDecoration(
+                                  shape: BoxShape.circle,
+                                ),
+                                child: Icon(
+                                  Icons.monetization_on,
+                                  size: 46,
+                                  color: Color.fromARGB(255, 226, 137, 131),
+                                ),
+                              ),
+                            ),
+                            SizedBox(
+                              height: 19,
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.only(left: 15),
+                              child: Text(
+                                "Payments",
+                                style: GoogleFonts.openSans(
+                                  fontSize: 15,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                            )
+                          ],
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+                Expanded(
+                  child: Container(
+                    margin: EdgeInsets.all(10),
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(20),
+                        border: Border.all(width: 2, color: Colors.black26)),
+                    height: 120,
+                    width: double.infinity,
+                    child: Stack(
+                      children: [
+                        Column(
+                          children: [
+                            Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Container(
+                                alignment: Alignment.topLeft,
+                                width: 40,
+                                height: 40,
+                                decoration: BoxDecoration(
+                                  shape: BoxShape.circle,
+                                  color: Color.fromARGB(255, 76, 149, 132),
+                                ),
+                                child: Transform.rotate(
+                                  angle: pi * 0.75,
+                                  child: Icon(Icons.arrow_back_rounded,
+                                      size: 40,
+                                      // rgba(76,149,132,255)
+                                      color: Colors.white),
+                                ),
+                              ),
+                            ),
+                            SizedBox(
+                              height: 19,
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.only(left: 15),
+                              child: Text(
+                                "Transfers",
+                                style: GoogleFonts.openSans(
+                                  fontSize: 15,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                            )
+                          ],
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(20),
+            child: Align(
+              alignment: Alignment.topLeft,
+              child: Text(
+                "Recent Transactions",
+                style: GoogleFonts.openSans(
+                    fontWeight: FontWeight.w900, fontSize: 20),
+              ),
+            ),
+          ),
+          SingleChildScrollView(
+            scrollDirection: Axis.horizontal,
+            child: Padding(
+              padding: const EdgeInsets.only(left: 20),
+              child: Row(
+                children: [
+                  CircleAvatar(
+                    backgroundColor: Colors.green,
+                    backgroundImage: NetworkImage(
+                        "https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/Paul_Circle.png/767px-Paul_Circle.png"),
+                    radius: 30,
+                  ),
+                  SizedBox(
+                    width: 10,
+                  ),
+                  CircleAvatar(
+                    backgroundColor: Colors.green,
+                    backgroundImage: NetworkImage(
+                        "https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/Paul_Circle.png/767px-Paul_Circle.png"),
+                    radius: 30,
+                  ),
+                  SizedBox(
+                    width: 10,
+                  ),
+                  CircleAvatar(
+                    backgroundColor: Colors.green,
+                    backgroundImage: NetworkImage(
+                        "https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/Paul_Circle.png/767px-Paul_Circle.png"),
+                    radius: 30,
+                  ),
+                  SizedBox(
+                    width: 10,
+                  ),
+                  CircleAvatar(
+                    backgroundColor: Colors.green,
+                    backgroundImage: NetworkImage(
+                        "https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/Paul_Circle.png/767px-Paul_Circle.png"),
+                    radius: 30,
+                  ),
+                  SizedBox(
+                    width: 10,
+                  ),
+                  CircleAvatar(
+                    backgroundColor: Colors.green,
+                    backgroundImage: NetworkImage(
+                        "https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/Paul_Circle.png/767px-Paul_Circle.png"),
+                    radius: 30,
+                  ),
+                  SizedBox(
+                    width: 10,
+                  ),
+                  CircleAvatar(
+                    backgroundColor: Colors.green,
+                    backgroundImage: NetworkImage(
+                        "https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/Paul_Circle.png/767px-Paul_Circle.png"),
+                    radius: 30,
+                  ),
+                  SizedBox(
+                    width: 10,
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ],
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        backgroundColor: Colors.transparent,
+        elevation: 0,
+        showSelectedLabels: false,
+        showUnselectedLabels: false,
+        items: [
+          BottomNavigationBarItem(
+              icon: Icon(
+                Icons.home,
+                color: Colors.black,
+              ),
+              label: "ABC"),
+          BottomNavigationBarItem(
+              icon: Icon(
+                Icons.verified_user_outlined,
+                color: Colors.black,
+              ),
+              label: "ABC"),
+          BottomNavigationBarItem(
+              icon: Icon(
+                Icons.games_outlined,
+                color: Colors.black,
+              ),
+              label: "ABC"),
+          BottomNavigationBarItem(
+              icon: Icon(
+                Icons.settings,
+                color: Colors.black,
+              ),
+              label: "ABC"),
         ],
       ),
     );
