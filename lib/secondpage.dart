@@ -9,6 +9,56 @@ class SecondPage extends StatefulWidget {
 }
 
 class _SecondPageState extends State<SecondPage> {
+  List<Map<String, dynamic>> data = [
+    {
+      'icon': Icon(Icons.access_time_filled),
+      'name': 'Income',
+      'price': "+\$24,897"
+    },
+    {
+      'icon': Icon(Icons.filter_list_alt),
+      'name': 'Income',
+      'price': "+\$24,897"
+    },
+    {
+      'icon': Icon(Icons.play_circle_fill),
+      'name': 'Income',
+      'price': "+\$24,897"
+    },
+    {
+      'icon': Icon(Icons.workspaces_filled),
+      'name': 'Income',
+      'price': "+\$24,897"
+    }
+  ];
+
+  Widget word(int index) {
+    return Expanded(
+      child: Padding(
+        padding: const EdgeInsets.all(15),
+        child: Stack(
+          children: [
+            Container(child: data[index]['icon']),
+            Container(
+              margin: EdgeInsets.only(left: 40),
+              child: Text(
+                data[index]['name'],
+                style: GoogleFonts.openSans(fontWeight: FontWeight.bold),
+              ),
+            ),
+            Align(
+              alignment: Alignment.topRight,
+              child: Text(
+                data[index]['price'],
+                style: GoogleFonts.openSans(fontWeight: FontWeight.bold),
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -16,7 +66,9 @@ class _SecondPageState extends State<SecondPage> {
         elevation: 0,
         backgroundColor: Colors.transparent,
         leading: IconButton(
-          onPressed: null,
+          onPressed: () {
+            Navigator.of(context).pop();
+          },
           icon: Icon(
             Icons.arrow_back_ios,
             color: Colors.black,
@@ -50,8 +102,11 @@ class _SecondPageState extends State<SecondPage> {
       ),
       body: Column(
         children: [
-          Padding(
+          // Container(margin: EdgeInsets.all(20),color: Colors.blue,width: double.infinity,)
+          Container(
             padding: const EdgeInsets.all(20),
+            width: double.infinity,
+            height: 200,
             child: Stack(
               children: [
                 Container(
@@ -115,88 +170,107 @@ class _SecondPageState extends State<SecondPage> {
                     ],
                   ),
                 ),
-                Padding(
-                  padding: const EdgeInsets.only(left: 240, top: 160),
-                  child: Text(
-                    "Aug 2021",
-                    style: GoogleFonts.openSans(fontWeight: FontWeight.bold),
-                  ),
-                )
               ],
             ),
           ),
-          Padding(
-            padding: const EdgeInsets.only(left: 20, top: 10),
+          Column(
+            children: [
+              Padding(
+                padding: const EdgeInsets.only(left: 25),
+                child: Align(
+                  alignment: Alignment.topLeft,
+                  child: Text(
+                    "August 2021",
+                    style: GoogleFonts.openSans(
+                        fontWeight: FontWeight.w900, fontSize: 20),
+                  ),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: SizedBox(
+                  width: double.infinity,
+                  height: 215,
+                  child: ListView.builder(
+                    itemCount: data.length,
+                    scrollDirection: Axis.vertical,
+                    itemBuilder: (context, index) => word(index),
+                  ),
+                ),
+              )
+            ],
+          ),
+          Container(
+            padding: EdgeInsets.only(left: 20, top: 10),
             child: Align(
               alignment: Alignment.topLeft,
               child: Text(
-                "August 2021",
+                "Notification",
                 style: GoogleFonts.openSans(
-                    fontWeight: FontWeight.bold, fontSize: 20),
+                    fontWeight: FontWeight.w900, fontSize: 20),
               ),
             ),
           ),
-          Expanded(
-            child: Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: ListView(
-                children: [
-                  ListTile(
-                    leading: Icon(
-                      Icons.play_circle_filled_rounded,
-                    ),
-                    title: Text(
-                      "Income",
-                      style: GoogleFonts.openSans(fontWeight: FontWeight.bold),
-                    ),
-                    trailing: Text(
-                      "+\$24,897",
-                      style: GoogleFonts.openSans(fontWeight: FontWeight.bold),
-                    ),
+          Stack(
+            alignment: Alignment.centerLeft,
+            children: [
+              Padding(
+                padding: const EdgeInsets.all(20),
+                child: Container(
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(40),
+                    color: Colors.black,
                   ),
-                  ListTile(
-                    leading: Icon(
-                      Icons.play_circle_filled_rounded,
-                    ),
-                    title: Text(
-                      "Expenses",
-                      style: GoogleFonts.openSans(fontWeight: FontWeight.bold),
-                    ),
-                    trailing: Text(
-                      "+\$10,597",
-                      style: GoogleFonts.openSans(fontWeight: FontWeight.bold),
-                    ),
-                  ),
-                  ListTile(
-                    leading: Icon(
-                      Icons.play_circle_filled_rounded,
-                    ),
-                    title: Text(
-                      "Credit Used",
-                      style: GoogleFonts.openSans(fontWeight: FontWeight.bold),
-                    ),
-                    trailing: Text(
-                      "+\$1.347",
-                      style: GoogleFonts.openSans(fontWeight: FontWeight.bold),
-                    ),
-                  ),
-                  ListTile(
-                    leading: Icon(
-                      Icons.play_circle_filled_rounded,
-                    ),
-                    title: Text(
-                      "Available",
-                      style: GoogleFonts.openSans(fontWeight: FontWeight.bold),
-                    ),
-                    trailing: Text(
-                      "+\$8.953",
-                      style: GoogleFonts.openSans(fontWeight: FontWeight.bold),
-                    ),
-                  )
-                ],
+                  width: double.infinity,
+                  height: 150,
+                ),
               ),
-            ),
-          ),
+              Padding(
+                padding: const EdgeInsets.only(left: 45),
+                child: Row(
+                  children: [
+                    Container(
+                      height: 60,
+                      width: 60,
+                      decoration: BoxDecoration(
+                        color: Color.fromARGB(255, 246, 206, 75),
+                        // rgba(246,206,75,255)
+                        borderRadius: BorderRadius.circular(90),
+                      ),
+                      child: Icon(
+                        Icons.stars,
+                        color: Colors.black,
+                        size: 30,
+                      ),
+                    ),
+                    SizedBox(
+                      width: 20,
+                    ),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          "Open your business\naccount within minutes",
+                          style: GoogleFonts.openSans(
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold,
+                              fontSize: 16),
+                        ),
+                        Text(
+                          "Open account",
+                          style: GoogleFonts.openSans(
+                            fontSize: 12,
+                            fontWeight: FontWeight.bold,
+                            color: Color.fromARGB(255, 246, 206, 75),
+                          ),
+                        )
+                      ],
+                    )
+                  ],
+                ),
+              ),
+            ],
+          )
         ],
       ),
     );
