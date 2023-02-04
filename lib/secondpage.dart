@@ -17,18 +17,18 @@ class _SecondPageState extends State<SecondPage> {
     },
     {
       'icon': Icon(Icons.filter_list_alt),
-      'name': 'Income',
-      'price': "+\$24,897"
+      'name': 'Expenses',
+      'price': "-\$10,597"
     },
     {
       'icon': Icon(Icons.play_circle_fill),
-      'name': 'Income',
-      'price': "+\$24,897"
+      'name': 'Credit used',
+      'price': "\$1.347"
     },
     {
       'icon': Icon(Icons.workspaces_filled),
-      'name': 'Income',
-      'price': "+\$24,897"
+      'name': 'Available',
+      'price': "\$8.953"
     }
   ];
 
@@ -50,7 +50,7 @@ class _SecondPageState extends State<SecondPage> {
               alignment: Alignment.topRight,
               child: Text(
                 data[index]['price'],
-                style: GoogleFonts.openSans(fontWeight: FontWeight.bold),
+                style: GoogleFonts.openSans(fontWeight: FontWeight.w900),
               ),
             ),
           ],
@@ -100,178 +100,180 @@ class _SecondPageState extends State<SecondPage> {
           )
         ],
       ),
-      body: Column(
-        children: [
-          // Container(margin: EdgeInsets.all(20),color: Colors.blue,width: double.infinity,)
-          Container(
-            padding: const EdgeInsets.all(20),
-            width: double.infinity,
-            height: 200,
-            child: Stack(
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            // Container(margin: EdgeInsets.all(20),color: Colors.blue,width: double.infinity,)
+            Container(
+              padding: const EdgeInsets.all(20),
+              width: double.infinity,
+              height: 200,
+              child: Stack(
+                children: [
+                  Container(
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(20),
+                      color: Color.fromARGB(255, 255, 247, 244),
+                      // rgba(255,247,244,255)
+                    ),
+                    width: double.infinity,
+                    height: 200,
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(left: 15, top: 10),
+                    child: Text(
+                      "Analyze",
+                      style: GoogleFonts.openSans(
+                          fontWeight: FontWeight.w900, fontSize: 20),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(left: 15, top: 70),
+                    child: Column(
+                      children: [
+                        Row(
+                          children: [
+                            Icon(
+                              Icons.circle,
+                              size: 10,
+                              color: Color.fromARGB(255, 226, 137, 131),
+                            ),
+                            SizedBox(
+                              width: 10,
+                            ),
+                            Text(
+                              "Income",
+                              style: GoogleFonts.openSans(
+                                  fontWeight: FontWeight.bold),
+                            ),
+                          ],
+                        ),
+                        SizedBox(
+                          height: 8,
+                        ),
+                        Row(
+                          children: [
+                            Icon(
+                              Icons.circle,
+                              size: 10,
+                              color: Colors.black,
+                            ),
+                            SizedBox(
+                              width: 10,
+                            ),
+                            Text(
+                              "Expences",
+                              style: GoogleFonts.openSans(
+                                  fontWeight: FontWeight.bold),
+                            ),
+                          ],
+                        )
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            Column(
               children: [
-                Container(
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(20),
-                    color: Color.fromARGB(255, 255, 247, 244),
-                    // rgba(255,247,244,255)
-                  ),
-                  width: double.infinity,
-                  height: 200,
-                ),
                 Padding(
-                  padding: const EdgeInsets.only(left: 15, top: 10),
-                  child: Text(
-                    "Analyze",
-                    style: GoogleFonts.openSans(
-                        fontWeight: FontWeight.w900, fontSize: 20),
+                  padding: const EdgeInsets.only(left: 25),
+                  child: Align(
+                    alignment: Alignment.topLeft,
+                    child: Text(
+                      "August 2021",
+                      style: GoogleFonts.openSans(
+                          fontWeight: FontWeight.w900, fontSize: 20),
+                    ),
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.only(left: 15, top: 70),
-                  child: Column(
+                  padding: const EdgeInsets.all(8.0),
+                  child: SizedBox(
+                    width: double.infinity,
+                    height: 215,
+                    child: ListView.builder(
+                      itemCount: data.length,
+                      scrollDirection: Axis.vertical,
+                      itemBuilder: (context, index) => word(index),
+                    ),
+                  ),
+                )
+              ],
+            ),
+            Container(
+              padding: EdgeInsets.only(left: 20, top: 10),
+              child: Align(
+                alignment: Alignment.topLeft,
+                child: Text(
+                  "Notification",
+                  style: GoogleFonts.openSans(
+                      fontWeight: FontWeight.w900, fontSize: 20),
+                ),
+              ),
+            ),
+            Stack(
+              alignment: Alignment.centerLeft,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.all(20),
+                  child: Container(
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(40),
+                      color: Colors.black,
+                    ),
+                    width: double.infinity,
+                    height: 120,
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(left: 45),
+                  child: Row(
                     children: [
-                      Row(
-                        children: [
-                          Icon(
-                            Icons.circle,
-                            size: 10,
-                            color: Color.fromARGB(255, 226, 137, 131),
-                          ),
-                          SizedBox(
-                            width: 10,
-                          ),
-                          Text(
-                            "Income",
-                            style: GoogleFonts.openSans(
-                                fontWeight: FontWeight.bold),
-                          ),
-                        ],
+                      Container(
+                        height: 60,
+                        width: 60,
+                        decoration: BoxDecoration(
+                          color: Color.fromARGB(255, 246, 206, 75),
+                          // rgba(246,206,75,255)
+                          borderRadius: BorderRadius.circular(90),
+                        ),
+                        child: Icon(
+                          Icons.stars,
+                          color: Colors.black,
+                          size: 30,
+                        ),
                       ),
                       SizedBox(
-                        height: 8,
+                        width: 20,
                       ),
-                      Row(
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Icon(
-                            Icons.circle,
-                            size: 10,
-                            color: Colors.black,
-                          ),
-                          SizedBox(
-                            width: 10,
+                          Text(
+                            "Open your business\naccount within minutes",
+                            style: GoogleFonts.openSans(
+                                color: Colors.white,
+                                fontWeight: FontWeight.bold,
+                                fontSize: 16),
                           ),
                           Text(
-                            "Expences",
+                            "Open account",
                             style: GoogleFonts.openSans(
-                                fontWeight: FontWeight.bold),
-                          ),
+                              fontSize: 12,
+                              fontWeight: FontWeight.bold,
+                              color: Color.fromARGB(255, 246, 206, 75),
+                            ),
+                          )
                         ],
                       )
                     ],
                   ),
                 ),
               ],
-            ),
-          ),
-          Column(
-            children: [
-              Padding(
-                padding: const EdgeInsets.only(left: 25),
-                child: Align(
-                  alignment: Alignment.topLeft,
-                  child: Text(
-                    "August 2021",
-                    style: GoogleFonts.openSans(
-                        fontWeight: FontWeight.w900, fontSize: 20),
-                  ),
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: SizedBox(
-                  width: double.infinity,
-                  height: 215,
-                  child: ListView.builder(
-                    itemCount: data.length,
-                    scrollDirection: Axis.vertical,
-                    itemBuilder: (context, index) => word(index),
-                  ),
-                ),
-              )
-            ],
-          ),
-          Container(
-            padding: EdgeInsets.only(left: 20, top: 10),
-            child: Align(
-              alignment: Alignment.topLeft,
-              child: Text(
-                "Notification",
-                style: GoogleFonts.openSans(
-                    fontWeight: FontWeight.w900, fontSize: 20),
-              ),
-            ),
-          ),
-          Stack(
-            alignment: Alignment.centerLeft,
-            children: [
-              Padding(
-                padding: const EdgeInsets.all(20),
-                child: Container(
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(40),
-                    color: Colors.black,
-                  ),
-                  width: double.infinity,
-                  height: 150,
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.only(left: 45),
-                child: Row(
-                  children: [
-                    Container(
-                      height: 60,
-                      width: 60,
-                      decoration: BoxDecoration(
-                        color: Color.fromARGB(255, 246, 206, 75),
-                        // rgba(246,206,75,255)
-                        borderRadius: BorderRadius.circular(90),
-                      ),
-                      child: Icon(
-                        Icons.stars,
-                        color: Colors.black,
-                        size: 30,
-                      ),
-                    ),
-                    SizedBox(
-                      width: 20,
-                    ),
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          "Open your business\naccount within minutes",
-                          style: GoogleFonts.openSans(
-                              color: Colors.white,
-                              fontWeight: FontWeight.bold,
-                              fontSize: 16),
-                        ),
-                        Text(
-                          "Open account",
-                          style: GoogleFonts.openSans(
-                            fontSize: 12,
-                            fontWeight: FontWeight.bold,
-                            color: Color.fromARGB(255, 246, 206, 75),
-                          ),
-                        )
-                      ],
-                    )
-                  ],
-                ),
-              ),
-            ],
-          )
-        ],
+            )
+          ],
+        ),
       ),
     );
   }
