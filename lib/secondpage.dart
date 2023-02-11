@@ -1,5 +1,7 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:intl/intl.dart';
 
 class SecondPage extends StatefulWidget {
   const SecondPage({super.key});
@@ -9,6 +11,7 @@ class SecondPage extends StatefulWidget {
 }
 
 class _SecondPageState extends State<SecondPage> {
+  DateTime _selectedDate = DateTime.now();
   List<Map<String, dynamic>> data = [
     {
       'icon': Icon(Icons.access_time_filled),
@@ -31,6 +34,18 @@ class _SecondPageState extends State<SecondPage> {
       'price': "\$8.953"
     }
   ];
+
+  Widget datePicker(){
+    return CupertinoDatePicker(
+      mode: CupertinoDatePickerMode.date,
+      initialDateTime: DateTime(1969, 1, 1),
+      onDateTimeChanged: (DateTime newDateTime) {
+        setState(() {
+          _selectedDate = newDateTime;
+        });
+      },
+    );
+  }
 
   Widget word(int index) {
     return Expanded(
@@ -91,7 +106,7 @@ class _SecondPageState extends State<SecondPage> {
                   ),
                 ),
                 IconButton(
-                  onPressed: null,
+                  onPressed: () => datePicker(),
                   icon: Icon(
                     Icons.date_range,
                     color: Colors.black,
