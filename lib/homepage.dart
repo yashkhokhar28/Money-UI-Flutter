@@ -16,7 +16,7 @@ class _HomePageState extends State<HomePage> {
     super.initState();
 
     Timer(
-      Duration(seconds: 3),
+      Duration(seconds: 5),
       () {
         Navigator.of(context).pushReplacement(
           MaterialPageRoute(
