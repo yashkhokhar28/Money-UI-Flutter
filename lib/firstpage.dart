@@ -428,8 +428,10 @@ class _FirstPageState extends State<FirstPage> {
             ),
           ),
           bottomNavigationBar: BottomNavigationBar(
+            selectedItemColor: Colors.black,
             backgroundColor: Colors.transparent,
             elevation: 0,
+            type: BottomNavigationBarType.fixed,
             showSelectedLabels: false,
             showUnselectedLabels: false,
             items: [
